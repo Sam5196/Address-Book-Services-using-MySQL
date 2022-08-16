@@ -154,4 +154,35 @@ mysql> select * from AddressBook where city = 'Lucknow' or State='Uttar Pradesh'
 +-----------+----------+----------+---------+---------------+--------+-------------+------------------+
 1 row in set (0.00 sec)
 
+=============================================
+-- UC7 size of addressbook by city and state
+=============================================
+
+mysql> select count(firstname) from AddressBook where city = 'Lucknow';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.01 sec)
+
+mysql> select count(firstname) from AddressBook where state = 'Maharashtra'
+    -> select count(firstname) from AddressBook where state = 'Maharashtra';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select count(firstname) from AddressBook where state = 'Maharashtra'' at line 2
+mysql> select count(firstname) from AddressBook where state = 'Maharashtra';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select count(firstname) from AddressBook where city = 'chennai';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
+
 
