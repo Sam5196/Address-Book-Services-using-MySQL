@@ -185,4 +185,18 @@ mysql> select count(firstname) from AddressBook where city = 'chennai';
 +------------------+
 1 row in set (0.00 sec)
 
+=====================================================
+-- UC8 soriting the name alphbetically for given city
+=====================================================
+
+mysql> select firstname,city from AddressBook order by city;
++-----------+---------+
+| firstname | city    |
++-----------+---------+
+| Ajeeth    | chennai |
+| Deepak    | Lucknow |
+| Sammed    | Sangli  |
++-----------+---------+
+3 rows in set (0.01 sec)
+
 
