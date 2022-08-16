@@ -66,3 +66,37 @@ Query OK, 0 rows affected (0.0826 sec)
 | email       | varchar(100) | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.0554 sec)
+
+mysql> insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    -> ('Sammed', 'Pachore','kupwad','Sangli','Maharashtra', 416416, 9145051892,'sammedpachore@gmail.com'),
+    -> ('Yash','Patil','Yashwantnagar','Kolhapur','Maharashtra', 561210, 999999999,'yashpatil123@gmail.com'),
+    -> ('Deepak','Yadav','Alambagh','Lucknow','Uttar Pradesh', 520102, 888888888,'deepak@gmail.com'),
+    -> ('Ajeeth','V','sirinagara','chennai','Tamilnadu', 3021402, 777777777,'ajith@gmail.com');
+Query OK, 4 rows affected (0.03 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> desc AddressBook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(50)  | NO   |     | NULL    |       |
+| lastName    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(50)  | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phoneNumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select * from AddressBook;
++-----------+----------+---------------+----------+---------------+---------+-------------+-------------------------+
+| firstName | lastName | address       | city     | state         | zip     | phoneNumber | email                   |
++-----------+----------+---------------+----------+---------------+---------+-------------+-------------------------+
+| Sammed    | Pachore  | kupwad        | Sangli   | Maharashtra   |  416416 |  9145051892 | sammedpachore@gmail.com |
+| Yash      | Patil    | Yashwantnagar | Kolhapur | Maharashtra   |  561210 |   999999999 | yashpatil123@gmail.com  |
+| Deepak    | Yadav    | Alambagh      | Lucknow  | Uttar Pradesh |  520102 |   888888888 | deepak@gmail.com        |
+| Ajeeth    | V        | sirinagara    | chennai  | Tamilnadu     | 3021402 |   777777777 | ajith@gmail.com         |
++-----------+----------+---------------+----------+---------------+---------+-------------+-------------------------+
+4 rows in set (0.01 sec)
