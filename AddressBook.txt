@@ -199,4 +199,50 @@ mysql> select firstname,city from AddressBook order by city;
 +-----------+---------+
 3 rows in set (0.01 sec)
 
+-- UC9- altering the table with addressbook name and contact type
+==================================================================
+
+mysql> alter table addressbook add bookName varchar(25) not null, add contactType varchar(25) not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc addressBook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(50)  | NO   |     | NULL    |       |
+| lastName    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(50)  | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phoneNumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
+| bookName    | varchar(25)  | NO   |     | NULL    |       |
+| contactType | varchar(25)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> update AddressBook set bookname='one', contactType='Family' where lastname='Pachore';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update AddressBook set bookname='two', contactType='Friends' where lastname='Ajeeth';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update AddressBook set bookname='two', contactType='Profession' where lastname='Yadav';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+----------+------------+---------+---------------+---------+-------------+-------------------------+----------+-------------+
+| firstName | lastName | address    | city    | state         | zip     | phoneNumber | email                   | bookName | contactType |
++-----------+----------+------------+---------+---------------+---------+-------------+-------------------------+----------+-------------+
+| Sammed    | Pachore  | kupwad     | Sangli  | Maharashtra   |  416416 |  9145051892 | sammedpachore@gmail.com | one      | Family      |
+| Deepak    | Yadav    | Alambagh   | Lucknow | Uttar Pradesh |  520102 |   888888888 | deepak@gmail.com        | two      | Profession  |
+| Ajeeth    | Yadav    | sirinagara | chennai | Tamilnadu     | 3021402 |   777777777 | ajith@gmail.com         | two      | Profession  |
++-----------+----------+------------+---------+---------------+---------+-------------+-------------------------+----------+-------------+
+3 rows in set (0.00 sec)
+
 
