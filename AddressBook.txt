@@ -245,4 +245,20 @@ mysql> select * from AddressBook;
 +-----------+----------+------------+---------+---------------+---------+-------------+-------------------------+----------+-------------+
 3 rows in set (0.00 sec)
 
+===============================================
+--UC10 get count of contacts by contacttype
+===============================================
+
+mysql> select * from addressbook where cotactType='Family';
+ERROR 1054 (42S22): Unknown column 'cotactType' in 'where clause'
+mysql> select * from addressbook where contactType='Family';
++-----------+----------+---------+--------+-------------+--------+-------------+-------------------------+----------+-------------+
+| firstName | lastName | address | city   | state       | zip    | phoneNumber | email                   | bookName | contactType |
++-----------+----------+---------+--------+-------------+--------+-------------+-------------------------+----------+-------------+
+| Sammed    | Pachore  | kupwad  | Sangli | Maharashtra | 416416 |  9145051892 | sammedpachore@gmail.com | one      | Family      |
++-----------+----------+---------+--------+-------------+--------+-------------+-------------------------+----------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from addressbook where contactType='Friends';
+Empty set (0.00 sec)
 
