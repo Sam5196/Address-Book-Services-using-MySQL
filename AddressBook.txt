@@ -67,6 +67,8 @@ Query OK, 0 rows affected (0.0826 sec)
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.0554 sec)
 
+-- UC3 inserting new Contacts to AddressBook table
+
 mysql> insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
     -> ('Sammed', 'Pachore','kupwad','Sangli','Maharashtra', 416416, 9145051892,'sammedpachore@gmail.com'),
     -> ('Yash','Patil','Yashwantnagar','Kolhapur','Maharashtra', 561210, 999999999,'yashpatil123@gmail.com'),
@@ -100,3 +102,27 @@ mysql> select * from AddressBook;
 | Ajeeth    | V        | sirinagara    | chennai  | Tamilnadu     | 3021402 |   777777777 | ajith@gmail.com         |
 +-----------+----------+---------------+----------+---------------+---------+-------------+-------------------------+
 4 rows in set (0.01 sec)
+
+===========================================================
+--> UC4 editing the existing contact by their firstname
+===========================================================
+
+mysql> update AddressBook set lastName='Yadav' where firstname='Ajeeth';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook set phoneNumber=7894531891 where firstname='Yash';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+----------+---------------+----------+---------------+---------+-------------+-------------------------+
+| firstName | lastName | address       | city     | state         | zip     | phoneNumber | email                   |
++-----------+----------+---------------+----------+---------------+---------+-------------+-------------------------+
+| Sammed    | Pachore  | kupwad        | Sangli   | Maharashtra   |  416416 |  9145051892 | sammedpachore@gmail.com |
+| Yash      | Patil    | Yashwantnagar | Kolhapur | Maharashtra   |  561210 |  7894531891 | yashpatil123@gmail.com  |
+| Deepak    | Yadav    | Alambagh      | Lucknow  | Uttar Pradesh |  520102 |   888888888 | deepak@gmail.com        |
+| Ajeeth    | Yadav    | sirinagara    | chennai  | Tamilnadu     | 3021402 |   777777777 | ajith@gmail.com         |
++-----------+----------+---------------+----------+---------------+---------+-------------+-------------------------+
+4 rows in set (0.00 sec)
+
